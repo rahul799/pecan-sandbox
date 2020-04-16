@@ -57,7 +57,7 @@ cull_database_entries<-function(table = NULL, outdir, file_name = NULL, con, mac
   }
   
   if(is.null(file_name)){
-    file_name<-table_name
+      file_name<-table_name
   }
   
   log<-list()
