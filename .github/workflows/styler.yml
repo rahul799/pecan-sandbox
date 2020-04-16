@@ -32,7 +32,7 @@ jobs:
       - name: Style
         run: for i in $(cat new2.txt); do Rscript -e "styler::style_file("$i")"; done
       - name: Document
-        run: Rscript -e 'devtools::document()'
+        run: for i in $(cat new2.txt); do Rscript -e "devtools::document(${i%/*}\")"; done
       - name: commit
         run: |
           git add .
