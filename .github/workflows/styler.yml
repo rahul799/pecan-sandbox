@@ -7,6 +7,7 @@ jobs:
     if: startsWith(github.event.comment.body, '/style')
     name: style
     runs-on: macOS-latest
+    container: pecan/depends:develop
     steps:
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
@@ -20,8 +21,6 @@ jobs:
       - name: Install dependencies
         run: |
           Rscript -e 'install.packages("styler")'
-          Rscript -e 'install.packages("devtools")'
-          Rscript -e 'devtools::install_version("roxygen2", version = "7.0.2", repos = "http://cran.us.r-project.org")'
       - name: string operations
         run: |
           echo '${{ steps.file_changes.outputs.files_modified}}' > names.txt
