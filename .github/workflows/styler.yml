@@ -6,7 +6,7 @@ jobs:
   style:
     if: startsWith(github.event.comment.body, '/style')
     name: style
-    runs-on: ubuntu-latest
+    runs-on: macos
     steps:
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
@@ -31,6 +31,8 @@ jobs:
           for i in "${ids[@]}"; do if [[ "$i" == *.R\" || "$i" == *.Rmd\" ]]; then echo "$i" >> new2.txt; fi; done
       - name: Style
         run: for i in $(cat new2.txt); do Rscript -e "styler::style_file("$i")"; done
+      - name: make
+        run: make
       - name: Document
         run: for i in $(cat new2.txt); do Rscript -e "devtools::document(${i%/*}\")"; done
       - name: commit
