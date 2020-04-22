@@ -33,7 +33,7 @@ jobs:
         run: for i in $(cat new2.txt); do Rscript -e "styler::style_file("$i")"; done
       - name: commit
         run: |
-          git add .
+          git add \*.R
           git commit -m 'Style'
       - uses: r-lib/actions/pr-push@master
         with:
