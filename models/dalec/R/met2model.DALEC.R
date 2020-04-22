@@ -131,6 +131,7 @@ met2model.DALEC <- function(in.path, in.prefix, outfolder, start_date, end_date,
       PEcAn.logger::logger.warn("Leaf N not specified, setting to default: ", leafN)
       leafN <- rep(leafN, length(Tair))
     }
+    
     if (length(HydResist) == 1) {
       PEcAn.logger::logger.warn("total plant-soil hydraulic resistance (MPa.m2.s/mmol-1) not specified, setting to default: ",
                   HydResist)
@@ -144,6 +145,7 @@ met2model.DALEC <- function(in.path, in.prefix, outfolder, start_date, end_date,
 
     ## build day of year
     diy <- PEcAn.utils::days_in_year(year)
+    
     doy <- rep(seq_len(diy), each = timestep.s / dt)[seq_along(sec)]
 
     ## Aggregate variables up to daily
@@ -196,7 +198,7 @@ met2model.DALEC <- function(in.path, in.prefix, outfolder, start_date, end_date,
     if (is.null(out)) {
       out <- tmp
     } else {
-      out <- rbind(out, tmp)
+      out <- rbind(out , tmp)
     }
   }  ## end loop over years
     write.table(out, out.file.full, quote = FALSE, sep = " ", row.names = FALSE, col.names = FALSE)
