@@ -41,7 +41,6 @@ jobs:
           
           
   check:
-    needs: [style]
     runs-on: ubuntu-latest
     container: pecan/depends:develop
     steps:
@@ -68,6 +67,8 @@ jobs:
         run: make
       - name: commit
         run: |
+          git config --global user.email "rahulagrawal799110@gmail.com"
+          git config --global user.name "Rahul Agrawal"
           git add .
           git commit -m 'make'
       - uses: r-lib/actions/pr-push@master
