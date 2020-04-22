@@ -70,7 +70,9 @@ write.config.GDAY <- function(defaults, trait.values, settings, run.id) {
     gday_path <- strsplit(executable, "src")[[1]]
     scripts <- paste(gday_path[1],"scripts",sep = "")
     
+    
     runpy <- gsub("@PATH_SCRIPTS@",scripts,runpy)
+    
     runpy <- gsub("@PATHTOGDAY@",executable,runpy)
     runpy <- gsub("@PATH_PARAMS@",rundir, runpy)
     
