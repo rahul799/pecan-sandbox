@@ -39,7 +39,7 @@ jobs:
           Rscript -e 'devtools::install_version("roxygen2", version = "7.0.2", repos = "http://cran.us.r-project.org")'
       - name: string operations
         run: |
-          style.sh
+          scripts/style.sh
       - name: Style
         run: for i in $(cat new2.txt); do Rscript -e "styler::style_file("$i")"; done
       - name: make
