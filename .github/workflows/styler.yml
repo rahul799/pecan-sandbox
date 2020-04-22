@@ -41,6 +41,7 @@ jobs:
           
           
   check:
+    needs: [style]
     runs-on: ubuntu-latest
     container: pecan/depends:develop
     steps:
