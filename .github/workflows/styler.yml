@@ -7,6 +7,7 @@ jobs:
     if: startsWith(github.event.comment.body, '/style')
     name: style
     runs-on: macos
+    container: pecan/depends:latest
     steps:
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
