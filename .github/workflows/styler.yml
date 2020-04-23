@@ -76,8 +76,10 @@ jobs:
       - name : make
         shell: bash
         run: |
-          cut -d / -f 1-2 artifacts/new2.txt | tr -d '"' > new.txt 
-          sort new.txt | uniq > uniq.txt        
+          cut -d / -f 1-2 artifacts/new2.txt | tr -d '"' > new.txt
+          cat new.txt
+          sort new.txt | uniq > uniq.txt
+          cat uniq.txt      
           for i in $(cat uniq.txt); do make .doc/${i}; done
       - name: commit
         run: |
