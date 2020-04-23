@@ -29,6 +29,11 @@ jobs:
           text=$(cat new.txt)
           IFS=',' read -ra ids <<< "$text"
           for i in "${ids[@]}"; do if [[ "$i" == *.R\" || "$i" == *.Rmd\" ]]; then echo "$i" >> new2.txt; fi; done
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: artifacts
+          path: new2.txt
       - name: Style
         run: for i in $(cat new2.txt); do Rscript -e "styler::style_file("$i")"; done
       - name: commit
@@ -64,8 +69,13 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: r-lib/actions/setup-r@master
+      - name : download artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: artifacts
       - name : make
-        run: make
+        shell: bash
+        run: for i in $(cat artifacts/new2.txt); do make .doc/${i%/*}; done
       - name: commit
         run: |
           git config --global user.email "rahulagrawal799110@gmail.com"
