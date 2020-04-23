@@ -121,7 +121,7 @@ met2model.FATES <- function(in.path, in.prefix, outfolder, start_date, end_date,
         ## eastward_wind & northward_wind
         ncout <- insert(ncout, "WIND", "m/s", WIND)
         
-        ncdf4::nc_close(ncout)
+         ncdf4::nc_close(ncout)
         
         #   ncvar_rename(ncfile,varid="LONGXY")
         #   ncvar_rename(ncfile,varid="LATIXY")
@@ -153,7 +153,7 @@ met2model.FATES <- function(in.path, in.prefix, outfolder, start_date, end_date,
   
   PEcAn.logger::logger.info("Done with met2model.FATES")
   
-  return(data.frame(file = paste0(outfolder, "/"), 
+  return( data.frame(file = paste0(outfolder, "/"), 
                     host = c(PEcAn.remote::fqdn()), 
                     mimetype = c("application/x-netcdf"), 
                     formatname = c("CLM met"), 
