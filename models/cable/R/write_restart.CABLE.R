@@ -11,7 +11,8 @@
 #' 
 #' @export
 write_restart.CABLE <- function(outdir,
-                                    runid,
+                                    runid, 
+                                
                                     start.time,
                                     stop.time,
                                     settings,
