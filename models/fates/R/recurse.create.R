@@ -27,6 +27,7 @@ recurse.create <- function(path, ins) {
   }
   
   down <- files[is.dir]
+  
   for (i in seq_along(down)) {
     ndir <- file.path(path, basename(down[i]))
     ## create folders
