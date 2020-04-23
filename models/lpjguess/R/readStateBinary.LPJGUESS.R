@@ -128,10 +128,11 @@ readStateBinary <- function(out.path, npft){
   Climate$v <- readBin(zz, double(), 365, size = 8)
   Climate$hh <- readBin(zz, double(), 365, size = 8)
   Climate$sinehh <- readBin(zz, double(), 365, size = 8)
+  
   Climate$daylength_save <- readBin(zz, double(), 365, size = 8)
   
   # indicates whether saved values exist for this day - bytes[36,1]
-  Climate$doneday <- readBin(zz, logical(), 365, size = 1) 
+     Climate$doneday <- readBin(zz, logical(), 365, size = 1) 
   
   
   # /// diurnal temperature range, used in daily/monthly BVOC (deg C)
