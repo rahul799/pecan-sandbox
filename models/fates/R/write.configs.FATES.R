@@ -179,7 +179,7 @@ write.config.FATES <- function(defaults, trait.values, settings, run.id){
    jobsh <- gsub('@BINARY@', binary, jobsh)
    jobsh <- gsub('@INDIR@', indir, jobsh)
    jobsh <- gsub('@DEFAULT@', default, jobsh)
-   jobsh <- gsub('@SITE_NAME@', site_name, jobsh) 
+    jobsh <- gsub('@SITE_NAME@', site_name, jobsh) 
   
    ## DATES -> ENV_RUN
    jobsh <- gsub('@START_DATE@', start_date, jobsh)
