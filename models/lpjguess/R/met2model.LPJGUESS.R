@@ -102,9 +102,9 @@ met2model.LPJGUESS <- function(in.path, in.prefix, outfolder, start_date, end_da
     cld.list[[y]] <- tapply(nc.cld[[y]], ind.vec, mean)
   }
 
-  var.list <- list(unlist(tmp.list), unlist(pre.list), unlist(cld.list))
+  var.list <-  list(unlist(tmp.list), unlist(pre.list), unlist(cld.list))
 
-  var.units <- c("K", "kg m-2 s-1", "W m-2")
+  var.units <-    c("K", "kg m-2 s-1", "W m-2")
 
   ## write climate data define dimensions
 
