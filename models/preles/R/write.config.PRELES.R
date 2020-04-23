@@ -27,7 +27,7 @@ write.config.PRELES <- function(defaults, trait.values, settings, run.id) {
   
   ### Define PARAMETERS
   filename <- paste(rundir, "/", "PRELES_params.", run.id, ".Rdata", sep = "")
-  preles.params <- save(trait.values, file = filename)
+  preles.params <- save(  trait.values, file = filename)
   
   #-----------------------------------------------------------------------
   
