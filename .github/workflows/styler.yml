@@ -75,7 +75,9 @@ jobs:
           name: artifacts
       - name : make
         shell: bash
-        run: for i in $(cat artifacts/new2.txt); do make .doc/${i%/*}; done
+        run: |
+          for j in $(cat artifacts/new2.txt); do echo ${j%/*} | tr -d '"' >> new.txt; done
+          for i in $(cat new.txt); do make .doc/${i}; done
       - name: commit
         run: |
           git config --global user.email "rahulagrawal799110@gmail.com"
