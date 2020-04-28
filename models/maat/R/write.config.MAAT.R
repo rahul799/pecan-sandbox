@@ -59,7 +59,7 @@ convert.samples.MAAT <- function(trait.samples, runid) {
   }
   if ("Ha.vcmax" %in% names(trait.samples)) {
     ## Convert from kJ mol-1 to J mol-1
-    trait.samples <- transform(trait.samples, Ha.vcmax = udunits2::ud.convert(Ha.vcmax, "kJ", "J"))
+     trait.samples <- transform(trait.samples, Ha.vcmax = udunits2::ud.convert(Ha.vcmax, "kJ", "J"))
   }
   if ("Hd.vcmax" %in% names(trait.samples)) {
     ## Convert from kJ mol-1 to J mol-1
